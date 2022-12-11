@@ -137,5 +137,13 @@ class Player {
              }
         }
     }
-
+    //start fight method
+    startFight(monster) {
+        console.log("Fight Start againts " + monster.getName());
+        while(this.getHp() > 0 && monster.getHp() > 0){
+            this.attack(monster);
+            if(monster.getHp() > 0)
+                monster.attack(this);
+        }
+    }
 }
