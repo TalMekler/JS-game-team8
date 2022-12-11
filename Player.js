@@ -7,6 +7,7 @@ class Player {
         this.attackDamage = 10;
         this.location.x = 0;
         this.location.y = 0;
+        this.monsterKilled = 0;
     }
     //get location method
     getLocation() {
@@ -23,6 +24,10 @@ class Player {
     //get Ad method
     getAttackDamage() {
         return this.attackDamage;
+    }
+    //get monster killed method
+    getMonsterKilled() {
+        return this.monsterKilled;
     }
     moveRight() {
         if(this.location.y==24) 
@@ -78,6 +83,17 @@ class Player {
             this.attackDamage = ad;
         }
      console.log("Attack Damage: " + this.attackDamage);
+    }
+    //set monster killed method
+    setMonsterKilled() {
+        this.monsterKilled += 1;
+        console.log("Monster Killed");
+        if(this.monsterKilled %3 == 0){
+            console.log("Level up");
+            this.setHp(this.getHp() + 20);
+            this.setAttackDamage(this.getAttackDamage() + 5);
+            this.setArmor(this.getArmor() + 5);
+        }
     }
     //attack method
     attack(target) {
