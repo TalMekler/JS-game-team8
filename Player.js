@@ -30,28 +30,48 @@ class Player {
         return this.monsterKilled;
     }
     moveRight() {
-        if(this.location.y==24) 
+        if(this.location.y==24){
             console.log("You can't move right");
-        this.location.y += 1
-        console.log("X: " + this.location.x + " Y: " + this.location.y);
+            return 0;
+        }
+        else{
+            this.location.y += 1
+            console.log("X: " + this.location.x + " Y: " + this.location.y);
+            return 1;
+        }
     }
     moveLeft() {
-        if(this.location.y==0) 
+        if(this.location.y==0){
             console.log("You can't move left");
-        this.location.y -= 1
-        console.log("X: " + this.location.x + " Y: " + this.location.y);
+            return 0;
+        }
+        else{
+            this.location.y -= 1
+            console.log("X: " + this.location.x + " Y: " + this.location.y);
+            return 1;
+        }
     }
     moveUp() {
-        if(this.location.x==0) 
+        if(this.location.x==0){
             console.log("You can't move up");
-        this.location.x -=1;
-        console.log("X: " + this.location.x + " Y: " + this.location.y);
+            return 0;
+        }
+        else{
+            this.location.x -=1;
+            console.log("X: " + this.location.x + " Y: " + this.location.y);
+            return 1;
+        }
     }
     moveDown() {
-        if(this.location.x==24) 
+        if(this.location.x==24){
             console.log("You can't move down");
-        this.location.x +=1;
-        console.log("X: " + this.location.x + " Y: " + this.location.y);
+            return 0;
+        }
+        else{
+            this.location.x +=1;
+            console.log("X: " + this.location.x + " Y: " + this.location.y);
+            return 1;
+        }
     }
     //set HP method
     setHp(hp) {
@@ -137,5 +157,13 @@ class Player {
              }
         }
     }
-
+    //start fight method
+    startFight(monster) {
+        console.log("Fight Start againts " + monster.getName());
+        while(this.getHp() > 0 && monster.getHp() > 0){
+            this.attack(monster);
+            if(monster.getHp() > 0)
+                monster.attack(this);
+        }
+    }
 }
