@@ -31,12 +31,18 @@ class Monster{
         this.attackDamage = attackDamage; 
         this.armor = armor;  
     }
-    attack(){ // returns the attack damage
-        return this.attackDamage;
+    attack(target){ // returns the attack damage
+        target.takeDamage(this.getAttackDamage);
     }
     takeDamage(damage){ // takes damage and reduces health - armor
-        if(damage > armor)
+        if(damage > armor){
             this.hp -= (damage-armor);
+            console.log(this.name + " took " + (damage-armor) + " damage!");
+        }
+        else{
+            console.log(this.name + " took no damage!");
+        }
+        console.log(this.name + " has " + this.hp + " health left!")
     }
     isAlive(){ // returns true if health is greater than 0
         return this.hp > 0;
