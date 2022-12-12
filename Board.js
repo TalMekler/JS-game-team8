@@ -10,6 +10,12 @@ class boardSquare {
     isEmpty(x, y) {
         return this.monsterInSquare == null && this.itemInSquare == null && this.playerInSquare == null;
     }
+    getMonsterInSquare() {
+        return this.monserInSquare;
+    }
+    getItemInSquare() {
+        return this.itemInSquare;
+    }
 }
 
 class Board {
@@ -20,35 +26,40 @@ class Board {
         this.player = player;
     }
     generateBoard() {
-        for (let i = 0; i < 25; i++) {
-            for (let j = 0; j < 25; j++) {
-                this.board[i][j] = new boardSquare();
-            }
-        }
+        // for (let i = 0; i < 25; i++) {
+        //     for (let j = 0; j < 25; j++) {
+        //         this.board[i][j] = new boardSquare();
+        //     }
+        // }
         let monstersCNT = 0;
-        while(monstersCNT<150){
-            let x = Math.floor(Math.random() * 25);
-            let y = Math.floor(Math.random() * 25);
-            if((!(x==0 && y ==0) || !(x==24 && y ==24)) && this.board[x][y].isEmpty()){
+        let x;
+        let y;
+        for(let i = 0; i< 150; i++){
+            x = Math.floor(Math.random() * 25);
+            y = Math.floor(Math.random() * 25);
+            // console.log("random x: " + x + ", random y: " + y);
+            if(!(x==0 && y ==0) && !(x==24 && y ==24) && this.board[x][y].isEmpty()){
                 this.board[x][y].monsterInSquare = createRandomMonster();
                 monstersCNT++;
+                console.log("Monster created!");
             }
         }
         let itemsCNT = 0;
-        while(itemsCNT<150){
+        for(let i = 0; i< 150; i++){
             let x = Math.floor(Math.random() * 25);
             let y = Math.floor(Math.random() * 25);
             if((!(x==0 && y ==0) || !(x==24 && y ==24)) && this.board[x][y].isEmpty()){
                 this.board[x][y].itemInSquare = new Item();
                 itemsCNT++;
+                console.log("Item created!");
             }
         }
     }
-    getMonsterInPosition(x, y) {
-        return this.board[x][y].monsterInSquare;
+    getMonsterInSquare(x, y) {
+        return this.board[x][y].getMonsterInSquare();
     }
-    getItemInPosition(x, y) {
-        return this.board[x][y].itemInSquare;
+    getItemInSquare(x, y) {
+        return this.board[x][y].getItemInSquare();
     }
 //printBoard to console
     printBoard() {
