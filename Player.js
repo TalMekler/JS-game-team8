@@ -5,8 +5,7 @@ class Player {
         this.hp = 100;
         this.armor = 5;
         this.attackDamage = 10;
-        this.location.x = 0;
-        this.location.y = 0;
+        this.location = new Location(0,0);
         this.monsterKilled = 0;
     }
     //get location method
@@ -32,45 +31,45 @@ class Player {
     moveRight() {
         if(this.location.y==24){
             console.log("You can't move right");
-            return 0;
+            return false;
         }
         else{
             this.location.y += 1
-            console.log("X: " + this.location.x + " Y: " + this.location.y);
-            return 1;
+            console.log("Move to: X: " + this.location.x + " Y: " + this.location.y);
+            return true;
         }
     }
     moveLeft() {
         if(this.location.y==0){
             console.log("You can't move left");
-            return 0;
+            return false;
         }
         else{
             this.location.y -= 1
-            console.log("X: " + this.location.x + " Y: " + this.location.y);
-            return 1;
+            console.log("Move to: X: " + this.location.x + " Y: " + this.location.y);
+            return true;
         }
     }
     moveUp() {
         if(this.location.x==0){
             console.log("You can't move up");
-            return 0;
+            return false;
         }
         else{
             this.location.x -=1;
-            console.log("X: " + this.location.x + " Y: " + this.location.y);
-            return 1;
+            console.log("Move to: X: " + this.location.x + " Y: " + this.location.y);
+            return true;
         }
     }
     moveDown() {
         if(this.location.x==24){
             console.log("You can't move down");
-            return 0;
+            return false;
         }
         else{
             this.location.x +=1;
-            console.log("X: " + this.location.x + " Y: " + this.location.y);
-            return 1;
+            console.log("Move to: X: " + this.location.x + " Y: " + this.location.y);
+            return true;
         }
     }
     //set HP method
