@@ -1,22 +1,5 @@
 
-const monsterList = {
-    "Mike": Monster("Mike", 42, 5, 1),
-    "Pikachu": Monster("Pikachu", 51, 10, 0),
-    "Squirtle": Monster("Squirtle", 60, 15, 0),
-    "Charmander": Monster("Charmander", 60, 15, 0),
-    "Bulbasaur": Monster("Bulbasaur", 60, 15, 0),
-    "Eevee": Monster("Eevee", 60, 15, 0 ),
-    "Snorlax": Monster("Snorlax", 60, 15, 0),
-    "Mew": Monster("Mew", 60, 15, 0),
-    "Mewtwo": Monster("Mewtwo", 60, 15, 0),
-    "Gengar": Monster("Gengar", 60, 15, 0),
-    "Gyarados": Monster("Gyarados", 60, 15, 0),
-    "Dragonite": Monster("Dragonite", 60, 15, 0),
-    "Moltres": Monster("Moltres", 60, 15, 0),
-    "Zapdos": Monster("Zapdos", 60, 15, 0),
-    "Articuno": Monster("Articuno", 60, 15, 0),
-}
-const monsterKeys = Object.keys(monsterList);
+
 //create a function that creates a random monster from the json file
 function createRandomMonster(){
     let randomMonster = monsterKeys[Math.floor(Math.random() * monsterKeys.length)];
@@ -89,3 +72,22 @@ class Monster{
     
 
 }
+
+const monsterList = {
+    "Mike": new Monster("Mike", 42, 5, 1),
+    "Pikachu": new Monster("Pikachu", 51, 10, 0),
+    "Squirtle": new Monster("Squirtle", 60, 15, 0),
+    "Charmander": new Monster("Charmander", 60, 15, 0),
+    "Bulbasaur": new Monster("Bulbasaur", 60, 15, 0),
+    "Eevee": new Monster("Eevee", 60, 15, 0 ),
+    "Snorlax": new Monster("Snorlax", 60, 15, 0),
+    "Mew": new Monster("Mew", 60, 15, 0),
+    "Mewtwo": new Monster("Mewtwo", 60, 15, 0),
+    "Gengar": new Monster("Gengar", 60, 15, 0),
+    "Gyarados": new Monster("Gyarados", 60, 15, 0),
+    "Dragonite": new Monster("Dragonite", 60, 15, 0),
+    "Moltres": new Monster("Moltres", 60, 15, 0),
+    "Zapdos": new Monster("Zapdos", 60, 15, 0),
+    "Articuno": new Monster("Articuno", 60, 15, 0),
+}
+const monsterKeys = Object.keys(monsterList);
