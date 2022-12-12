@@ -1,4 +1,4 @@
-class Items{
+class Item{
     //create default constructor that will generate random items
     constructor(){
         const randomType = ["hp","armor","ad"];
