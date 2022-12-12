@@ -14,10 +14,14 @@ class boardSquare {
     );
   }
   getMonsterInSquare() {
-    return this.monserInSquare;
+    return this.monsterInSquare;
   }
   getItemInSquare() {
     return this.itemInSquare;
+  }
+  
+  getPlayerInSquare() {
+    return this.playerInSquare;
   }
 }
 
@@ -29,21 +33,17 @@ class Board {
     // }
     this.board = new Array(25);
   }
-  generateBoard() {
+  generateBoard(player) {
     for (let i = 0; i < 25; i++) {
-        this.board[i] = new Array(25);
-        // for (let j = 0; j < 25; j++) {
-        //     this.board[i][j] = new boardSquare();
-        // }
+      this.board[i] = new Array(25);
     }
 
     for (let i = 0; i < 25; i++) {
-        for (let j = 0; j < 25; j++) {
-            this.board[i][j] = new boardSquare();
-        }
+      for (let j = 0; j < 25; j++) {
+        this.board[i][j] = new boardSquare();
+      }
     }
-
-
+    this.board[0][0].playerInSquare = player;
     let monstersCNT = 0;
     let x;
     let y;
@@ -56,6 +56,7 @@ class Board {
         !(x == 24 && y == 24) &&
         this.board[x][y].isEmpty()
       ) {
+        // const randomMonster = createRandomMonster();
         this.board[x][y].monsterInSquare = createRandomMonster();
         monstersCNT++;
         console.log("Monster created!");
@@ -66,7 +67,7 @@ class Board {
       let x = Math.floor(Math.random() * 25);
       let y = Math.floor(Math.random() * 25);
       if (
-        (!(x == 0 && y == 0) || !(x == 24 && y == 24)) &&
+    !(x == 0 && y == 0) && !(x == 24 && y == 24) &&
         this.board[x][y].isEmpty()
       ) {
         this.board[x][y].itemInSquare = new Item();
@@ -84,22 +85,24 @@ class Board {
   //printBoard to console
   printBoard() {
     for (let i = 0; i < 25; i++) {
+      let st = "";
       for (let j = 0; j < 25; j++) {
-        if (this.board[i][j].playerInSquare) {
-          console.log("| P |");
-        } else if (this.board[i][j].monsterInSquare) {
-          console.log("| M |");
-        } else if (this.board[i][j].itemInSquare) {
-          console.log("| I |");
+        if (this.board[i][j].getPlayerInSquare() != null) {
+          st += " | P |";
+        } else if (this.board[i][j].getMonsterInSquare() != null) {
+          st += " | M |";
+        } else if (this.board[i][j].getItemInSquare() != null) {
+          st += " | I |";
         } else {
-          console.log("| _ |");
+          st += " | _ |";
         }
       }
-      console.log("\n");
+      console.log(st);
+      st = "";
       for (let k = 0; k < 25; k++) {
-        console.log("----");
+        st += " -----";
       }
-      console.log("\n");
+      console.log(st);
     }
   }
 }

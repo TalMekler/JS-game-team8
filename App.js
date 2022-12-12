@@ -376,8 +376,8 @@ const board = new Board();
 
 console.log("Start generate");
 // board.printBoard();
-board.generateBoard();
-// board.printBoard();
+board.generateBoard(player);
+board.printBoard();
 let gameOn = true;
 console.log(player.getLocation());
 
