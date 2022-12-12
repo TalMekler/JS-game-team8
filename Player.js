@@ -74,9 +74,10 @@ class Player {
     }
     //set HP method
     setHp(hp) {
-        if(hp > 100)
+        console.log("trying to change hp to:", hp);
+        if(hp >= 100)
             this.hp = 100;
-        else if (hp<0)
+        else if (hp<=0)
             this.hp = 0;
         else
             this.hp = hp;
@@ -120,12 +121,14 @@ class Player {
     }
     //takeDamage method
     takeDamage(damage) {
-        if(armor < damage){
-            this.setHp( this.hp - (damage - this.getArmor()));
-            console.log("Damage taken: " + damage - this.getArmor());
+        console.log("Armor:", this.getArmor(), "damage:", damage);
+        if(this.getArmor() < damage){
+            this.setHp( this.getHp() - (damage - this.getArmor()));
+            // this.setHp( 5);
+            console.log("1) Damage taken: " + (damage - this.getArmor()));
         }
         else{
-            console.log("Damage taken: 0");
+            console.log("2) Damage taken: 0");
         }
         console.log("HP: " + this.hp);
     }
@@ -159,10 +162,19 @@ class Player {
     //start fight method
     startFight(monster) {
         console.log("Fight Start againts " + monster.getName());
+
         while(this.getHp() > 0 && monster.getHp() > 0){
+            alert("player attack")
             this.attack(monster);
             if(monster.getHp() > 0)
                 monster.attack(this);
+            if(this.getHp <= 0){
+                alert("You have 0 HP")
+            }
         }
+    }
+
+    printStats() {
+        console.log("HP:", this.hp, "Armor:", this.armor, "AD:", this.attackDamage)
     }
 }

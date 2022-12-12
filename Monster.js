@@ -15,12 +15,12 @@ class Monster{
         this.armor = armor;  
     }
     attack(target){ // returns the attack damage
-        target.takeDamage(this.getAttackDamage);
+        target.takeDamage(this.getAttackDamage());
     }
     takeDamage(damage){ // takes damage and reduces health - armor
-        if(damage > armor){
-            this.hp -= (damage-armor);
-            console.log(this.name + " took " + (damage-armor) + " damage!");
+        if(damage > this.getArmor()){
+            this.hp -= (damage-this.getArmor());
+            console.log(this.name + " took " + (damage-this.getArmor()) + " damage!");
         }
         else{
             console.log(this.name + " took no damage!");

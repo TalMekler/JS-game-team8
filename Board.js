@@ -5,6 +5,7 @@ class boardSquare {
     this.monserInSquare = null;
     this.itemInSquare = null;
     this.playerInSquare = null;
+    this.endPosition = false;
   }
   isEmpty(x, y) {
     return (
@@ -32,6 +33,9 @@ class Board {
     //   this.board[i] = new boardSquare()[25];
     // }
     this.board = new Array(25);
+    this.playerLocation = new Map();
+    this.playerLocation.set("x", 0);
+    this.playerLocation.set("y", 0);
   }
   generateBoard(player) {
     for (let i = 0; i < 25; i++) {
@@ -44,6 +48,7 @@ class Board {
       }
     }
     this.board[0][0].playerInSquare = player;
+    this.board[24][24].endPosition = true;
     let monstersCNT = 0;
     let x;
     let y;
@@ -82,6 +87,20 @@ class Board {
   getItemInSquare(x, y) {
     return this.board[x][y].getItemInSquare();
   }
+
+  removeItemFromBoard(location) {
+    this.board[parseInt(location.x)][parseInt(location.y)].itemInSquare = null;
+  }
+  removeMonsterFromBoard(location) {
+    this.board[parseInt(location.x)][parseInt(location.y)].monsterInSquare = null;
+  }
+  removePlayerFromBoard(player) {
+    this.board[this.playerLocation.get("x")][this.playerLocation.get("y")].playerInSquare = null;
+    this.board[player.getLocation().x][player.getLocation().y].playerInSquare = player;
+    this.playerLocation.set("x", player.getLocation().x);
+    this.playerLocation.set("y", player.getLocation().y);
+  }
+
   //printBoard to console
   printBoard() {
     for (let i = 0; i < 25; i++) {
@@ -93,7 +112,10 @@ class Board {
           st += " | M |";
         } else if (this.board[i][j].getItemInSquare() != null) {
           st += " | I |";
-        } else {
+        }else if(this.board[i][j].endPosition) {
+            st += "  🎁 ";
+        }
+         else {
           st += " | _ |";
         }
       }
