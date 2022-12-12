@@ -31,5 +31,7 @@ function checkKey(e) {
     // TODO: Board::isMonsterOnSquare() -> start fight -> if 0 HP to player = GAME OVER || else -> print stats
     // TODO: Board::isItemOnSquare() -> take item -> print stats
     // TODO: Board::isOnEndSquare() -> WIN! -> ask to play again
+    
+
   }
 }
