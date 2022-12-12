@@ -13,9 +13,8 @@ class boardSquare {
 }
 
 class Board {
-
     constructor(player) {
-        this.board = new boardSquare[25][25];
+        this.board = Array(25).fill(Array(25).fill(new boardSquare()));
         this.monsters = [];
         this.items = [];
         this.player = player;
