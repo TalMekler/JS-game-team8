@@ -29,9 +29,21 @@ function checkKey(e) {
   if(isMoveSuccess){
     // Move success
     // TODO: Board::isMonsterOnSquare() -> start fight -> if 0 HP to player = GAME OVER || else -> print stats
+    const monsterInPosition = getMonsterInPosition(player.getLocation.x, player.getLocation.y)
+    if(monsterInPosition != null){
+      player.startFight(monsterInPosition)
+      if(player.getHp === 0){
+        //Player dead
+        console.log("GAME OVER - YOU LOSE!");
+      }else {
+        // Player killed the monster
+        player.setMonsterKilled();
+      }
+    }
+
     // TODO: Board::isItemOnSquare() -> take item -> print stats
+
     // TODO: Board::isOnEndSquare() -> WIN! -> ask to play again
     
-
   }
 }
