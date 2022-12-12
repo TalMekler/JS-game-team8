@@ -43,7 +43,7 @@ if (gameOn) {
         player.getLocation.x,
         player.getLocation.y
       );
-      const itemInPosition = board.getMonsterInPosition(
+      const itemInPosition = board.getItemInPosition(
         player.getLocation.x,
         player.getLocation.y
       );
