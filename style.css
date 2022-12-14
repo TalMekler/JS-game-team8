@@ -58,9 +58,10 @@ body {
 }
 
 .log-text {
-    margin-top: 1rem;
+    padding: 0.25rem .5rem;
 }
 
 .log-text#last {
+    margin-top: 1rem;
     background: yellow;
 }

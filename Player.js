@@ -45,9 +45,7 @@ class Player {
     if (this.location.y == 0) {
       console.log("You can't move left");
       removeLast();
-      logWrapper.innerHTML =
-        "<p class='log-text' id='last'>You can't move left</p>" +
-        logWrapper.innerHTML;
+      logWrapper.innerHTML = "<p class='log-text' id='last'>You can't move left</p>" + logWrapper.innerHTML;
       return false;
     } else {
       this.location.y -= 1;
@@ -60,8 +58,7 @@ class Player {
       console.log("You can't move up");
       removeLast();
       logWrapper.innerHTML =
-        "<p class='log-text' id='last'>You can't move up</p>" +
-        logWrapper.innerHTML;
+        "<p class='log-text' id='last'>You can't move up</p>" + logWrapper.innerHTML;
       return false;
     } else {
       this.location.x -= 1;
@@ -90,12 +87,13 @@ class Player {
     else if (hp <= 0) this.hp = 0;
     else this.hp = hp;
     console.log("HP: " + this.hp);
-    removeLast();
-    logWrapper.innerHTML =
-      "<p class='log-text' id='last'>HP set to" +
-      this.hp +
-      "</p>" +
-      logWrapper.innerHTML;
+    hpElement.innerText = this.hp
+    // removeLast();
+    // logWrapper.innerHTML =
+    //   "<p class='log-text' id='last'>HP set to" +
+    //   this.hp +
+    //   "</p>" +
+    //   logWrapper.innerHTML;
   }
   //set Armor method
   setArmor(armor) {
