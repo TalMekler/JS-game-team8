@@ -26,6 +26,7 @@ class Player {
   }
   //get monster killed method
   getMonsterKilled() {
+    
     return this.monsterKilled;
   }
   moveRight() {
@@ -40,10 +41,10 @@ class Player {
       console.log("Move to: X: " + this.location.x + " Y: " + this.location.y);
       document.getElementsByClassName("active")[0].classList.remove("active");
       let xID = this.location.x;
-        let yID = this.location.y;
-        if(xID < 10) xID = "0" + xID;
-        if(yID < 10) yID = "0" + yID;
-      document.getElementById("square-"+xID+yID).classList.add("active");
+      let yID = this.location.y;
+      if (xID < 10) xID = "0" + xID;
+      if (yID < 10) yID = "0" + yID;
+      document.getElementById("square-" + xID + yID).classList.add("active");
       return true;
     }
   }
@@ -60,10 +61,10 @@ class Player {
       console.log("Move to: X: " + this.location.x + " Y: " + this.location.y);
       document.getElementsByClassName("active")[0].classList.remove("active");
       let xID = this.location.x;
-        let yID = this.location.y;
-        if(xID < 10) xID = "0" + xID;
-        if(yID < 10) yID = "0" + yID;
-      document.getElementById("square-"+xID+yID).classList.add("active");
+      let yID = this.location.y;
+      if (xID < 10) xID = "0" + xID;
+      if (yID < 10) yID = "0" + yID;
+      document.getElementById("square-" + xID + yID).classList.add("active");
       return true;
     }
   }
@@ -80,10 +81,10 @@ class Player {
       console.log("Move to: X: " + this.location.x + " Y: " + this.location.y);
       document.getElementsByClassName("active")[0].classList.remove("active");
       let xID = this.location.x;
-        let yID = this.location.y;
-        if(xID < 10) xID = "0" + xID;
-        if(yID < 10) yID = "0" + yID;
-      document.getElementById("square-"+xID+yID).classList.add("active");
+      let yID = this.location.y;
+      if (xID < 10) xID = "0" + xID;
+      if (yID < 10) yID = "0" + yID;
+      document.getElementById("square-" + xID + yID).classList.add("active");
       return true;
     }
   }
@@ -100,10 +101,10 @@ class Player {
       console.log("Move to: X: " + this.location.x + " Y: " + this.location.y);
       document.getElementsByClassName("active")[0].classList.remove("active");
       let xID = this.location.x;
-        let yID = this.location.y;
-        if(xID < 10) xID = "0" + xID;
-        if(yID < 10) yID = "0" + yID;
-      document.getElementById("square-"+xID+yID).classList.add("active");
+      let yID = this.location.y;
+      if (xID < 10) xID = "0" + xID;
+      if (yID < 10) yID = "0" + yID;
+      document.getElementById("square-" + xID + yID).classList.add("active");
       return true;
     }
   }
@@ -155,6 +156,11 @@ class Player {
   //set monster killed method
   setMonsterKilled() {
     this.monsterKilled += 1;
+    let xID = player.location.x;
+    let yID = player.location.y;
+    if (xID < 10) xID = "0" + xID;
+    if (yID < 10) yID = "0" + yID;
+    document.getElementById("square-" + xID + yID).classList.remove("monster");
     console.log("Monster Killed");
     removeLast();
     logWrapper.innerHTML =
@@ -196,6 +202,11 @@ class Player {
   }
   //take item method
   takeItem(item) {
+    let xID = player.location.x;
+    let yID = player.location.y;
+    if (xID < 10) xID = "0" + xID;
+    if (yID < 10) yID = "0" + yID;
+    document.getElementById("square-" + xID + yID).classList.remove("item");
     if (item.getType() == "hp") {
       this.setHp(this.getHp() + item.getValue());
       if (item.getValue() > 0) {
@@ -265,16 +276,15 @@ class Player {
       logWrapper.innerHTML;
 
     while (this.getHp() > 0 && monster.getHp() > 0) {
-        
-        this.attack(monster);
-        
-        if (monster.getHp() > 0) {
-            monster.attack(this);
-        }
+      this.attack(monster);
 
-        if (this.getHp <= 0) {
-            alert("You have 0 HP");
-        }
+      if (monster.getHp() > 0) {
+        monster.attack(this);
+      }
+
+      if (this.getHp <= 0) {
+        alert("You have 0 HP");
+      }
     }
   }
 

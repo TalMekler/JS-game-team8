@@ -58,7 +58,7 @@ class Board {
     let monstersCNT = 0;
     let x;
     let y;
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < 200; i++) {
       x = Math.floor(Math.random() * 25);
       y = Math.floor(Math.random() * 25);
       // console.log("random x: " + x + ", random y: " + y);
@@ -79,7 +79,7 @@ class Board {
       }
     }
     let itemsCNT = 0;
-    for (let i = 0; i < 150; i++) {
+    for (let i = 0; i < 200; i++) {
       let x = Math.floor(Math.random() * 25);
       let y = Math.floor(Math.random() * 25);
       if (
