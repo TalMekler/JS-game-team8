@@ -164,7 +164,6 @@ class Player {
         console.log("Fight Start againts " + monster.getName());
 
         while(this.getHp() > 0 && monster.getHp() > 0){
-            alert("player attack")
             this.attack(monster);
             if(monster.getHp() > 0)
                 monster.attack(this);

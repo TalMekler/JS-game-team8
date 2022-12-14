@@ -6,15 +6,10 @@ function printGame(player, board) {
 }
 
 const player = new Player();
-player.setHp(10)
 const board = new Board();
-
-console.log("Start generate");
-// board.printBoard();
 board.generateBoard(player);
 board.printBoard();
 let gameOn = true;
-console.log(player.getLocation());
 
 document.addEventListener("keypress", () => {
 
