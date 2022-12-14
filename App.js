@@ -1,4 +1,7 @@
 
+// const logWrapper = document.getElementById("log-text-wrapper");
+{/* <p class="log-text last">check3</p> */}
+
 function printGame(player, board) {
   // TODO: print player stat
   player.printStats();
