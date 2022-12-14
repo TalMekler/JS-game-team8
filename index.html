@@ -4,10 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>JS GAME APP</title>
 </head>
 <body>
+
+    <div class="game-wrapper wrapper" id="game-wrapper">
+        
+    </div>
     
+    
+    <div class="log-wrapper wrapper">
+
+        <h1 id="game-name">Game Title</h1>
+        <div class="player-stats">
+            <div class="stat">
+                <h3 class="stat-title">Health</h3>
+                <div id="hp">100</div>
+            </div>
+            <div class="stat">
+                <h3 class="stat-title">Attack Damage</h3>
+                <div id="attack-damage">15</div>
+            </div>
+            <div class="stat">
+                <h3 class="stat-title">Armor</h3>
+                <div id="armor">20</div>
+            </div>
+
+
+        </div>
+
+        <div class="log-box">
+            <h2>Game Log</h2>
+            <div class="log-text-wrapper" id="log-text-wrapper">
+                
+            </div>
+        </div>
+    </div>
+
+
+    
+    <script>
+        const gameWrapper = document.getElementById("game-wrapper");
+        const logWrapper = document.getElementById("log-text-wrapper");
+        const hpElement = document.getElementById("hp");
+        const armorElement = document.getElementById("armor");
+        const adElement = document.getElementById("attack-damage");
+        
+        function removeLast() {
+            const haveLastElement = document.getElementById("last");
+            console.log(haveLastElement);
+            if(haveLastElement != null)
+                haveLastElement.removeAttribute('id');
+        }
+    </script>
     <script src="/Item.js"></script>
     <script src="/Monster.js"></script>
     <script src="/Board.js"></script>
