@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 body {
@@ -19,7 +22,7 @@ body {
 
 .log-wrapper {
     width: 30%;
-    background: red;
+    background: #f5f5f5;
     padding: 3rem;
     display: flex;
     flex-direction: column;
@@ -43,8 +46,12 @@ body {
     align-items: center;
 }
 
+.log-wrapper .player-stats .stat .stat-title {
+    margin-bottom: .25rem;
+}
+
 .log-wrapper .log-box {
-    margin-top: 5rem;
+    margin-top: 2.5rem;
     width: 100%;
     /* height: 75%; */
     flex: 1;
@@ -52,7 +59,9 @@ body {
     border-radius: 1rem;
     padding: 1.5rem 1rem;
     overflow-y: scroll;
-    border: .25rem solid black;
+    /* border: .25rem solid black; */
+    
+    
 }
 
 .log-wrapper .log-box h2 {

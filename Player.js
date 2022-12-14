@@ -82,18 +82,18 @@ class Player {
   }
   //set HP method
   setHp(hp) {
-    console.log("trying to change hp to:", hp);
+    console.log("trying to change hp to: ", hp);
     if (hp >= 100) this.hp = 100;
     else if (hp <= 0) this.hp = 0;
     else this.hp = hp;
     console.log("HP: " + this.hp);
     hpElement.innerText = this.hp
-    // removeLast();
-    // logWrapper.innerHTML =
-    //   "<p class='log-text' id='last'>HP set to" +
-    //   this.hp +
-    //   "</p>" +
-    //   logWrapper.innerHTML;
+    removeLast();
+    logWrapper.innerHTML =
+      "<p class='log-text' id='last'>HP set to " +
+      this.hp +
+      "</p>" +
+      logWrapper.innerHTML;
   }
   //set Armor method
   setArmor(armor) {
@@ -101,9 +101,10 @@ class Player {
     else if (armor < 0) this.armor = 0;
     else this.armor = armor;
     console.log("Armor: " + this.armor);
+    armorElement.innerText = this.armor
     removeLast();
     logWrapper.innerHTML =
-      "<p class='log-text' id='last'>Armor set to" +
+      "<p class='log-text' id='last'>Armor set to " +
       this.armor +
       "</p>" +
       logWrapper.innerHTML;
@@ -116,8 +117,9 @@ class Player {
       this.attackDamage = ad;
     }
     console.log("Attack Damage: " + this.attackDamage);
+    adElement.innerText = this.attackDamage;
     removeLast();
-    logWrapper.innerHTML = "<p class='log-text' id='last'>Attack Damage set to" + this.attackDamage + "</p>" + logWrapper.innerHTML;
+    logWrapper.innerHTML = "<p class='log-text' id='last'>Attack Damage set to " + this.attackDamage + "</p>" + logWrapper.innerHTML;
   }
   //set monster killed method
   setMonsterKilled() {
@@ -143,8 +145,12 @@ class Player {
       this.setHp(this.getHp() - (damage - this.getArmor()));
       // this.setHp( 5);
       console.log("1) Damage taken: " + (damage - this.getArmor()));
+      removeLast();
+        logWrapper.innerHTML = "<p class='log-text' id='last'>Damage taken: " + (damage - this.getArmor()) + "</p>" + logWrapper.innerHTML;
     } else {
       console.log("2) Damage taken: 0");
+      removeLast();
+        logWrapper.innerHTML = "<p class='log-text' id='last'>Damage taken: 0</p>" + logWrapper.innerHTML;
     }
     console.log("HP: " + this.hp);
   }
@@ -152,29 +158,46 @@ class Player {
   takeItem(item) {
     if (item.getType() == "hp") {
       this.setHp(this.getHp() + item.getValue());
-      if (item.getValue() > 0) console.log("Take hp item: +" + item.getValue());
+      if (item.getValue() > 0) {
+        console.log("Take hp item: " + item.getValue());
+        removeLast();
+        logWrapper.innerHTML = "<p class='log-text' id='last'>Take hp item: " + item.getValue() + "</p>" + logWrapper.innerHTML;
+      }
       else {
         console.log("Take hp item: +" + item.getValue());
+        removeLast();
+        logWrapper.innerHTML = "<p class='log-text' id='last'>Take hp item: " + item.getValue() + "</p>" + logWrapper.innerHTML;
       }
     } else if (item.getType() == "armor") {
       this.setArmor(this.getArmor() + item.getValue());
-      if (item.getValue() > 0)
+      removeLast();
+        
+      if (item.getValue() > 0){
         console.log("Take Armor item: +" + item.getValue());
+        logWrapper.innerHTML = "<p class='log-text' id='last'>Take Armor item: +" + item.getValue() + "</p>" + logWrapper.innerHTML;
+      }
       else {
-        console.log("Take Armor item: +" + item.getValue());
+        console.log("Take Armor item: " + item.getValue());
+        logWrapper.innerHTML = "<p class='log-text' id='last'>Take Armor item: " + item.getValue() + "</p>" + logWrapper.innerHTML;
       }
     } else if (item.getType() == "ad") {
       this.setAttackDamage(this.getAttackDamage() + item.getValue());
-      if (item.getValue() > 0)
+      removeLast();
+      if (item.getValue() > 0){
         console.log("Take attackDamage item: +" + item.getValue());
+        logWrapper.innerHTML = "<p class='log-text' id='last'>Take attackDamage item: +" + item.getValue() + "</p>" + logWrapper.innerHTML;
+      }
       else {
-        console.log("Take attackDamage item: +" + item.getValue());
+        console.log("Take attackDamage item: " + item.getValue());
+        logWrapper.innerHTML = "<p class='log-text' id='last'>Take attackDamage item: " + item.getValue() + "</p>" + logWrapper.innerHTML;
       }
     }
   }
   //start fight method
   startFight(monster) {
     console.log("Fight Start againts " + monster.getName());
+    removeLast();
+    logWrapper.innerHTML = "<p class='log-text' id='last'>Fight Start againts " + monster.getName() + "</p>" + logWrapper.innerHTML;
 
     while (this.getHp() > 0 && monster.getHp() > 0) {
       this.attack(monster);
@@ -187,5 +210,7 @@ class Player {
 
   printStats() {
     console.log("HP:", this.hp, "Armor:", this.armor, "AD:", this.attackDamage);
+    removeLast();
+    logWrapper.innerHTML = "<p class='log-text' id='last'>HP: " + this.hp + " Armor: " + this.armor + " AttackDamage: " + this.attackDamage + "</p>" + logWrapper.innerHTML;
   }
 }

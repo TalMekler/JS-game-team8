@@ -4,7 +4,7 @@
 
 function printGame(player, board) {
   // TODO: print player stat
-  player.printStats();
+  // player.printStats();
   board.printBoard();
 }
 
