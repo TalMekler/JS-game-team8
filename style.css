@@ -73,6 +73,7 @@ body {
 .log-text#last {
     margin-top: 1rem;
     background: yellow;
+    font-weight: 700;
 }
 
 .game-wrapper {
@@ -80,11 +81,12 @@ body {
     width: 70%;
     background: #000;
     display: grid;
+    gap: .15rem;
     grid-template-columns: repeat(25, 1fr);
 }
 
 .game-wrapper .square {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     /* width: 25px; */
     /* height: 25px; */
     background: white;
