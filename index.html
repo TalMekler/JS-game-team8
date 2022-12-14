@@ -9,7 +9,11 @@
 </head>
 <body>
 
-    <div class="game-wrapper wrapper"></div>
+    <div class="game-wrapper wrapper" id="game-wrapper">
+        
+    </div>
+    
+    
     <div class="log-wrapper wrapper">
 
         <h1 id="game-name">Game Title</h1>
@@ -41,6 +45,7 @@
 
     
     <script>
+        const gameWrapper = document.getElementById("game-wrapper");
         const logWrapper = document.getElementById("log-text-wrapper");
         const hpElement = document.getElementById("hp");
         const armorElement = document.getElementById("armor");

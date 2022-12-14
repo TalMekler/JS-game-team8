@@ -45,8 +45,14 @@ class Board {
     for (let i = 0; i < 25; i++) {
       for (let j = 0; j < 25; j++) {
         this.board[i][j] = new boardSquare();
+        let xID = i;
+        let yID = j;
+        if(xID < 10) xID = "0" + xID;
+        if(yID < 10) yID = "0" + yID;
+        gameWrapper.innerHTML += "<div class='square' id='square-" + xID + yID + "'></div>"
       }
     }
+    document.getElementById("square-0000").classList.add("active");
     this.board[0][0].playerInSquare = player;
     this.board[24][24].endPosition = true;
     let monstersCNT = 0;
@@ -65,6 +71,11 @@ class Board {
         this.board[x][y].monsterInSquare = createRandomMonster();
         monstersCNT++;
         console.log("Monster created!");
+        let xID = x;
+        let yID = y;
+        if(xID < 10) xID = "0" + xID;
+        if(yID < 10) yID = "0" + yID;
+        document.getElementById("square-" +xID+yID).classList.add("monster");
       }
     }
     let itemsCNT = 0;
@@ -78,6 +89,11 @@ class Board {
         this.board[x][y].itemInSquare = new Item();
         itemsCNT++;
         console.log("Item created!");
+        let xID = x;
+        let yID = y;
+        if(xID < 10) xID = "0" + xID;
+        if(yID < 10) yID = "0" + yID;
+        document.getElementById("square-" +xID+yID).classList.add("item");
       }
     }
   }
