@@ -208,7 +208,12 @@ class Player {
     if (yID < 10) yID = "0" + yID;
     document.getElementById("square-" + xID + yID).classList.remove("item");
     if (item.getType() == "hp") {
-      this.setHp(this.getHp() + item.getValue());
+      alert(this.getHp() + item.getValue());
+      if(this.getHp() + item.getValue() > 0)
+        this.setHp(this.getHp() + item.getValue());
+      else
+        this.setHp(1);
+        
       if (item.getValue() > 0) {
         console.log("Take hp item: " + item.getValue());
         removeLast();
