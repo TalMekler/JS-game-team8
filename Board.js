@@ -79,7 +79,7 @@ class Board {
       }
     }
     let itemsCNT = 0;
-    for (let i = 0; i < 200; i++) {
+    for (let i = 0; i < 100; i++) {
       let x = Math.floor(Math.random() * 25);
       let y = Math.floor(Math.random() * 25);
       if (

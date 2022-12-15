@@ -144,7 +144,7 @@ body {
     /* width: 25px; */
     /* height: 25px; */
     background: rgba(255, 255, 255, .1);
-    border: .25px solid white;
+    border: .25px solid rgba(255, 255, 255, .35);
     position: relative;
 }
 
@@ -175,7 +175,6 @@ body {
     transform: translate(-50%, -50%);
     font-size: 2.5rem;
     color: black;
-    z-index: 1;
 }
 
 .game-wrapper .square.monster::after, .game-wrapper .square.item::after {
