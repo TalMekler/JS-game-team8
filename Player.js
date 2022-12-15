@@ -32,6 +32,7 @@ class Player {
   moveRight() {
     if (this.location.y == 24) {
       console.log("You can't move right");
+      removeLast();
       logWrapper.innerHTML =
         "<p class='log-text' id='last'>You can't move right</p>" +
         logWrapper.innerHTML;
