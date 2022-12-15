@@ -195,9 +195,10 @@ class Player {
         logWrapper.innerHTML;
     } else {
       console.log("2) Damage taken: 0");
+      this.setHp(this.getHp() - 1);
       removeLast();
       logWrapper.innerHTML =
-        "<p class='log-text' id='last'>Damage taken: 0</p>" +
+        "<p class='log-text' id='last'>Damage taken: 1</p>" +
         logWrapper.innerHTML;
     }
     console.log("HP: " + this.hp);

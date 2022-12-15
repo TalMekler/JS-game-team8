@@ -23,6 +23,7 @@ class Monster{
             console.log(this.name + " took " + (damage-this.getArmor()) + " damage!");
         }
         else{
+            this.hp -= (damage-1);
             console.log(this.name + " took no damage!");
         }
         console.log(this.name + " has " + this.hp + " health left!")
