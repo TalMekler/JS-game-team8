@@ -7,11 +7,11 @@ function printGame(player, board) {
   // TODO: print player stat
   // player.printStats();
 
-  board.printBoard();
+  // board.printBoard();
 }
 
-const player = new Player();
-const board = new Board();
+let player = new Player();
+let board = new Board();
 board.generateBoard(player);
 board.printBoard();
 hpElement.innerText = player.getHp();
@@ -20,27 +20,26 @@ adElement.innerText = player.getAttackDamage();
 let gameOn = true;
 
 document.addEventListener("keypress", () => {
-  // })
-
-  if (gameOn) {
+  if (gameOn === true) {
     document.onkeydown = checkKey;
 
     function checkKey(e) {
       let isMoveSuccess = false;
       e = e || window.event;
-
-      if (e.keyCode == "38" || e.key == "w" || e.key == "W") {
-        // up arrow
-        isMoveSuccess = player.moveUp();
-      } else if (e.keyCode == "40" || e.key == "s" || e.key == "S") {
-        // down arrow
-        isMoveSuccess = player.moveDown();
-      } else if (e.keyCode == "37" || e.key == "a" || e.key == "A") {
-        // left arrow
-        isMoveSuccess = player.moveLeft();
-      } else if (e.keyCode == "39" || e.key == "d" || e.key == "D") {
-        // right arrow
-        isMoveSuccess = player.moveRight();
+      if (gameOn) {
+        if (e.keyCode == "38" || e.key == "w" || e.key == "W") {
+          // up arrow
+          isMoveSuccess = player.moveUp();
+        } else if (e.keyCode == "40" || e.key == "s" || e.key == "S") {
+          // down arrow
+          isMoveSuccess = player.moveDown();
+        } else if (e.keyCode == "37" || e.key == "a" || e.key == "A") {
+          // left arrow
+          isMoveSuccess = player.moveLeft();
+        } else if (e.keyCode == "39" || e.key == "d" || e.key == "D") {
+          // right arrow
+          isMoveSuccess = player.moveRight();
+        }
       }
 
       if (isMoveSuccess) {
@@ -63,7 +62,8 @@ document.addEventListener("keypress", () => {
           if (player.getHp() == 0) {
             //Player dead
             gameOn = false;
-            console.log("GAME OVER - YOU LOSE!");
+            // alert("GAME OVER - YOU LOSE!");
+            document.getElementById("lose").classList.add("active");
           } else {
             // Player killed the monster
             player.setMonsterKilled();
@@ -83,7 +83,7 @@ document.addEventListener("keypress", () => {
           player.getLocation().y === 24
         ) {
           gameOn = false;
-          console.log("YOU WIN!");
+          alert("YOU WIN!");
         }
 
         printGame(player, board);
