@@ -126,7 +126,7 @@ class Player {
   }
   //set Armor method
   setArmor(armor) {
-    if (armor > 20) this.armor = 20;
+    if (armor > 19) this.armor = 19;
     else if (armor < 0) this.armor = 0;
     else this.armor = armor;
     console.log("Armor: " + this.armor);
