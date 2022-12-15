@@ -63,7 +63,8 @@ document.addEventListener("keypress", () => {
             //Player dead
             gameOn = false;
             // alert("GAME OVER - YOU LOSE!");
-            document.getElementById("lose").classList.add("active");
+            document.getElementById("end-game").classList.add("active");
+            document.querySelector("#end-game .text h1").innerText = "You Lose!"
           } else {
             // Player killed the monster
             player.setMonsterKilled();

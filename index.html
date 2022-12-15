@@ -8,10 +8,10 @@
     <title>JS GAME APP</title>
   </head>
   <body>
-    <div id="lose">
+    <div id="end-game">
       <div class="bg"></div>
       <div class="text">
-        <h1>You Lose!</h1>
+        <h1></h1>
         <button onclick="restartGame()">RESTART</button>
       </div>
     </div>
@@ -81,7 +81,7 @@
         armorElement.innerText = player.getArmor();
         adElement.innerText = player.getAttackDamage();
         gameOn = true;
-        document.getElementById("lose").classList.remove("active");
+        document.getElementById("end-game").classList.remove("active");
       }
     </script>
   </body>
