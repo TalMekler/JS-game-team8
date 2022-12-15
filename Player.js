@@ -204,6 +204,7 @@ class Player {
   }
   //take item method
   takeItem(item) {
+    gameOn = false
     let xID = player.location.x;
     let yID = player.location.y;
     if (xID < 10) xID = "0" + xID;
@@ -223,6 +224,8 @@ class Player {
           item.getValue() +
           "</p>" +
           logWrapper.innerHTML;
+          takeItemWrapper.classList.add("active");
+          itemTaken.innerHTML = "HP +"+item.getValue();
       } else {
         console.log("Take hp item: +" + item.getValue());
         removeLast();
@@ -231,6 +234,8 @@ class Player {
           item.getValue() +
           "</p>" +
           logWrapper.innerHTML;
+          takeItemWrapper.classList.add("active");
+          itemTaken.innerHTML = "HP "+item.getValue();
       }
     } else if (item.getType() == "armor") {
       this.setArmor(this.getArmor() + item.getValue());
@@ -243,6 +248,8 @@ class Player {
           item.getValue() +
           "</p>" +
           logWrapper.innerHTML;
+          takeItemWrapper.classList.add("active");
+          itemTaken.innerHTML = "Armor +"+item.getValue();
       } else {
         console.log("Take Armor item: " + item.getValue());
         logWrapper.innerHTML =
@@ -250,6 +257,8 @@ class Player {
           item.getValue() +
           "</p>" +
           logWrapper.innerHTML;
+          takeItemWrapper.classList.add("active");
+          itemTaken.innerHTML = "Amror "+item.getValue();
       }
     } else if (item.getType() == "ad") {
       this.setAttackDamage(this.getAttackDamage() + item.getValue());
@@ -261,6 +270,8 @@ class Player {
           item.getValue() +
           "</p>" +
           logWrapper.innerHTML;
+          takeItemWrapper.classList.add("active");
+          itemTaken.innerHTML = "Attack Damage +"+item.getValue();
       } else {
         console.log("Take attackDamage item: " + item.getValue());
         logWrapper.innerHTML =
@@ -268,8 +279,15 @@ class Player {
           item.getValue() +
           "</p>" +
           logWrapper.innerHTML;
+          takeItemWrapper.classList.add("active");
+          itemTaken.innerHTML = "Attack Damage "+item.getValue();
       }
     }
+
+    setTimeout(() => {
+      takeItemWrapper.classList.remove("active");
+      gameOn = true
+    }, 750);
   }
   //start fight method
   startFight(monster) {

@@ -23,6 +23,13 @@
       </div>
     </div>
 
+    <div id="take-item-wrapper">
+      <div class="bg"></div>
+      <div class="text">
+        <h1> You take an item: <span id="item-taken-value"></span> </h1>
+      </div>
+    </div>
+
     <div class="game-wrapper wrapper" id="game-wrapper"></div>
 
     <div class="log-wrapper wrapper">
@@ -61,6 +68,8 @@
       const fightWrapper = document.getElementById("fight-wrapper");
       const monsterName = document.getElementById("monster-name");
       const monsterKilled = document.getElementById("monster-killed");
+      const takeItemWrapper = document.getElementById("take-item-wrapper");
+      const itemTaken = document.getElementById("item-taken-value");
 
       function removeLast() {
         const haveLastElement = document.getElementById("last");

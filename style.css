@@ -9,6 +9,7 @@
 
 body {
     display: flex;
+    overflow: hidden;
 }
 
 #end-game {
@@ -17,7 +18,7 @@ body {
     left: 0;
     top: 0;
     bottom: 0;
-    z-index: 1;
+    z-index: 100;
     opacity: 0;
     visibility: hidden;
     transition: opacity 150ms ease-in-out;
@@ -107,6 +108,46 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
     border-radius: .75rem;
+}
+
+#take-item-wrapper {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    transform: translateY(40px);
+    opacity: 0; 
+    visibility: hidden;
+    /* display: none; */
+    /* display: block; */
+    transition: opacity 150ms ease-in-out, transform 300ms ease-in-out, visibility 500ms;
+}
+#take-item-wrapper.active {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+    transform: translateY(0px);
+}
+
+#take-item-wrapper .text {
+    background: white;
+    width: fit-content;
+    padding: 2rem 4rem;
+    text-align: center;
+    z-index: 2;   
+    position: relative;
+    left: 100%;
+    top: 100%;
+    transform: translate(-110%, -125%);
+    border-radius: .75rem;
+    border: 1px solid black;
+    transition: opacity 150ms ease-in-out, transform 300ms ease-in-out, visibility 0s;
+}
+
+#take-item-wrapper .text h1 {
+    font-size: 1rem;
 }
 
 
