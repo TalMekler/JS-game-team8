@@ -18,9 +18,13 @@ body {
     top: 0;
     bottom: 0;
     z-index: 1;
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 150ms ease-in-out;
 }
 #end-game.active {
+    visibility: visible;
+    opacity: 1;
     display: block;
 }
 
@@ -64,6 +68,46 @@ body {
     outline: 1px white solid;
 }
 
+#fight-wrapper {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    opacity: 0;
+    visibility: hidden;
+    /* display: none; */
+    /* display: block; */
+    transition: opacity 150ms ease-in-out;
+}
+#fight-wrapper.active {
+    visibility: visible;
+    opacity: 1;
+    display: block;
+}
+
+#fight-wrapper .bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: -1;
+    opacity: .7;
+}
+
+#fight-wrapper .text {
+    background: white;
+    width: fit-content;
+    padding: 4rem 8rem;
+    text-align: center;
+    z-index: 2;   
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: .75rem;
+}
 
 
 .wrapper {

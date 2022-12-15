@@ -280,6 +280,15 @@ class Player {
       "</p>" +
       logWrapper.innerHTML;
 
+      fightWrapper.classList.add("active");
+      monsterName.innerText = monster.getName();
+      gameOn = false;
+      setTimeout(() => {
+        fightWrapper.classList.remove("active");
+        if(this.hp > 0)
+          gameOn = true;
+      }, 1000);
+      
     while (this.getHp() > 0 && monster.getHp() > 0) {
       this.attack(monster);
 

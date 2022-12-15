@@ -15,7 +15,13 @@
         <button onclick="restartGame()">RESTART</button>
       </div>
     </div>
-    <!-- <div id="win"></div> -->
+    
+    <div id="fight-wrapper">
+      <div class="bg"></div>
+      <div class="text">
+        <h1>You started a fight agains: <span id="monster-name">monster name</span></h1>
+      </div>
+    </div>
 
     <div class="game-wrapper wrapper" id="game-wrapper"></div>
 
@@ -48,6 +54,8 @@
       const hpElement = document.getElementById("hp");
       const armorElement = document.getElementById("armor");
       const adElement = document.getElementById("attack-damage");
+      const fightWrapper = document.getElementById("fight-wrapper");
+      const monsterName = document.getElementById("monster-name");
 
       function removeLast() {
         const haveLastElement = document.getElementById("last");
