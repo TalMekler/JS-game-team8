@@ -208,7 +208,6 @@ class Player {
     if (yID < 10) yID = "0" + yID;
     document.getElementById("square-" + xID + yID).classList.remove("item");
     if (item.getType() == "hp") {
-      alert(this.getHp() + item.getValue());
       if(this.getHp() + item.getValue() > 0)
         this.setHp(this.getHp() + item.getValue());
       else
