@@ -128,7 +128,9 @@ body {
 }
 
 .log-wrapper .player-stats {
-    display: flex;
+    /* display: flex; */
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
     width: 100%;
     justify-content: space-between;
     margin-top: 2rem;
@@ -139,6 +141,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.log-wrapper .player-stats .stat:not(:last-child) {
+    margin-bottom: .75rem;
 }
 
 .log-wrapper .player-stats .stat .stat-title {

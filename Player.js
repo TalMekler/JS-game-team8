@@ -168,6 +168,7 @@ class Player {
       "<p class='log-text' id='last'>You killed a monster" +
       "</p>" +
       logWrapper.innerHTML;
+      monsterKilled.innerText = player.monsterKilled
     if (this.monsterKilled % 3 == 0) {
       console.log("Level up");
       this.setHp(this.getHp() + 20);

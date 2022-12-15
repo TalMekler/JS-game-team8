@@ -16,6 +16,7 @@ board.printBoard();
 hpElement.innerText = player.getHp();
 armorElement.innerText = player.getArmor();
 adElement.innerText = player.getAttackDamage();
+monsterKilled.innerText = player.monsterKilled
 let gameOn = true;
 
 document.addEventListener("keypress", () => {

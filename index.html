@@ -40,6 +40,10 @@
           <h3 class="stat-title">Armor</h3>
           <div id="armor"></div>
         </div>
+        <div class="stat">
+          <h3 class="stat-title">Monster Killed</h3>
+          <div id="monster-killed"></div>
+        </div>
       </div>
 
       <div class="log-box">
@@ -56,6 +60,7 @@
       const adElement = document.getElementById("attack-damage");
       const fightWrapper = document.getElementById("fight-wrapper");
       const monsterName = document.getElementById("monster-name");
+      const monsterKilled = document.getElementById("monster-killed");
 
       function removeLast() {
         const haveLastElement = document.getElementById("last");
@@ -88,6 +93,7 @@
         hpElement.innerText = player.getHp();
         armorElement.innerText = player.getArmor();
         adElement.innerText = player.getAttackDamage();
+        monsterKilled.innerText = player.monsterKilled
         gameOn = true;
         document.getElementById("end-game").classList.remove("active");
       }
