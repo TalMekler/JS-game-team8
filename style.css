@@ -80,6 +80,7 @@ body {
 
 #game-name {
     text-align: center;
+    font-size: 1.98rem;
 }
 
 .log-wrapper .player-stats {
@@ -130,9 +131,9 @@ body {
 }
 
 .game-wrapper {
-    padding: 1rem;
+    padding: .25rem;
     width: 70%;
-    background: #000;
+    background: url("./assets/gameBoardBG.jpeg");
     display: grid;
     gap: .15rem;
     grid-template-columns: repeat(25, 1fr);
@@ -142,22 +143,67 @@ body {
     /* border: 1px solid black; */
     /* width: 25px; */
     /* height: 25px; */
-    background: white;
+    background: rgba(255, 255, 255, .1);
+    border: .25px solid white;
+    position: relative;
 }
 
 .game-wrapper .square#square-2424{
-    background: gold;
+    position: relative;
+}
+
+.game-wrapper .square#square-2424::after {
+    content: "🏆";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.5rem;
 }
 
 .game-wrapper .square.active {
     position: relative;
-    background: rgb(61, 61, 184) !important;
+    background: rgba(255, 255, 255, .5);
 }
 
-.game-wrapper .square.item {
-    background: green;
+.game-wrapper .square.active::after {
+    content: "⚔";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5rem;
+    color: black;
+    z-index: 1;
 }
 
-.game-wrapper .square.monster {
-    background: red;
+.game-wrapper .square.monster::after, .game-wrapper .square.item::after {
+    /* content: "?";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.25rem;
+    color: white; */
+}
+
+.game-wrapper .square.monster.killed::after {
+    content: "👹";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.25rem;
+    color: white;
+}
+
+.game-wrapper .square.item.taken::after {
+    content: "💊";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.25rem;
+    color: white;
 }

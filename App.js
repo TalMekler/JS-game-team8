@@ -6,7 +6,6 @@
 function printGame(player, board) {
   // TODO: print player stat
   // player.printStats();
-
   // board.printBoard();
 }
 
@@ -64,10 +63,22 @@ document.addEventListener("keypress", () => {
             gameOn = false;
             // alert("GAME OVER - YOU LOSE!");
             document.getElementById("end-game").classList.add("active");
-            document.querySelector("#end-game .text h1").innerText = "You Lose!"
+            document.querySelector("#end-game .text h1").innerText =
+              "You Lose!";
           } else {
             // Player killed the monster
             player.setMonsterKilled();
+            let xID = player.location.x;
+            let yID = player.location.y;
+            if (xID < 10) xID = "0" + xID;
+            if (yID < 10) yID = "0" + yID;
+            document
+              .getElementById("square-" + xID + yID)
+              .classList.add("killed");
+              document
+              .getElementById("square-" + xID + yID)
+              .classList.add("monster");
+              
             board.removeMonsterFromBoard(player.getLocation());
           }
         }
@@ -75,6 +86,16 @@ document.addEventListener("keypress", () => {
         // TODO: Board::isItemOnSquare() -> take item -> print stats
         else if (itemInPosition != null) {
           player.takeItem(itemInPosition);
+          let xID = player.location.x;
+            let yID = player.location.y;
+            if (xID < 10) xID = "0" + xID;
+            if (yID < 10) yID = "0" + yID;
+            document
+              .getElementById("square-" + xID + yID)
+              .classList.add("taken");
+              document
+              .getElementById("square-" + xID + yID)
+              .classList.add("item");
           board.removeItemFromBoard(player.getLocation());
         }
 
@@ -85,7 +106,7 @@ document.addEventListener("keypress", () => {
         ) {
           gameOn = false;
           document.getElementById("end-game").classList.add("active");
-            document.querySelector("#end-game .text h1").innerText = "You Won!"
+          document.querySelector("#end-game .text h1").innerText = "You Won!";
         }
 
         printGame(player, board);
