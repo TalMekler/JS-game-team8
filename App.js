@@ -84,7 +84,8 @@ document.addEventListener("keypress", () => {
           player.getLocation().y === 24
         ) {
           gameOn = false;
-          alert("YOU WIN!");
+          document.getElementById("end-game").classList.add("active");
+            document.querySelector("#end-game .text h1").innerText = "You Won!"
         }
 
         printGame(player, board);
