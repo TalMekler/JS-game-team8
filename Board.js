@@ -75,7 +75,7 @@ class Board {
         let yID = y;
         if(xID < 10) xID = "0" + xID;
         if(yID < 10) yID = "0" + yID;
-        document.getElementById("square-" +xID+yID).classList.add("monster");
+        // document.getElementById("square-" +xID+yID).classList.add("monster");
       }
     }
     let itemsCNT = 0;
@@ -93,7 +93,7 @@ class Board {
         let yID = y;
         if(xID < 10) xID = "0" + xID;
         if(yID < 10) yID = "0" + yID;
-        document.getElementById("square-" +xID+yID).classList.add("item");
+        // document.getElementById("square-" +xID+yID).classList.add("item");
       }
     }
   }
